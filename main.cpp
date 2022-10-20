@@ -3,7 +3,7 @@
 #include<string> // std::string
 #include<stdexcept> // errors
 
-namespace formt {
+namespace formt { // to format my code
 
     auto find_braces(std::string s_p) 
     {for(int i = 0; i < s_p.size(); i++) 
