@@ -438,6 +438,4 @@ int main()
     containers::binary<1,0,1,0,0,1> b; // for some reason gives a really wierd output.
     onl();
     b.output_bits();
-
-    //https://www.edx.org/course/circuits-and-electronics-1-basic-circuit-analysi-2
 }
