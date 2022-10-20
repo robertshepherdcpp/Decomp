@@ -1,2 +1,2 @@
 # Decomp
-A decrompression and compression library.
+A decompression and compression library.
