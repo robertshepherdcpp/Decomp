@@ -68,15 +68,25 @@ namespace containers
 } // end of namespace containers.
 
 There is also a formatting element to the Decomp library that looks like this:
+
     formt::format f("Hello my name is {}", 'R');
     onl();
     formt::format xyz("Good Afternoon {}", "C++");
     onl();
     formt::format abc("Good Afternoon {}", 42);
+    
 or you can just use:
+
     formt::func(/*pass in parameters like would do for object coration*/);
+    
 both work the same but just one creates an object and the other one doesnt. But in the objects creation it actually defers the variadic template parameters to the formt::func function. So it doesnt matter what you do. You could allocate it like this:
+
     formt::format* xyz("std::cout << {} << std::endl;", "Hello C++");
+    
 and then deallocate the object:
+
     delete xyz;
-but this is not advised and a smart pointer like a std::unique pointer should be prefered instead of handling raw pointers.
+    
+but this is not advised and a smart pointer like a std::unique pointer should be prefered instead of handling raw pointers. for example:
+
+    std::unique_ptr<formt::format>(\*Normal Parameters or constructor aguements*/);
