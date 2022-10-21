@@ -89,4 +89,4 @@ and then deallocate the object:
     
 but this is not advised and a smart pointer like a std::unique pointer should be prefered instead of handling raw pointers. for example:
 
-    std::unique_ptr<formt::format>(\*Normal Parameters or constructor aguements*/);
+    std::unique_ptr<formt::format>(/*Normal Parameters or constructor aguements*/);
