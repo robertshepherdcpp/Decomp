@@ -90,3 +90,19 @@ and then deallocate the object:
 but this is not advised and a smart pointer like a std::unique pointer should be prefered instead of handling raw pointers. for example:
 
     std::unique_ptr<formt::format>(/*Normal Parameters or constructor aguements*/);
+    
+There is also a binary and bits namespace called:
+
+    namespace binary_and_bits {/*Implementation...*/}
+
+and it has several containers like:
+
+    template<typename T>
+    struct binary{auto Print();}
+    
+    // specialisations of binary, e.g., for one and two.
+    
+    auto make_binary(auto T);
+    
+    struct one{};
+    struct two{};
