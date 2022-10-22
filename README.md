@@ -25,6 +25,22 @@ The decryption and encryption functions(the main part of this library) accept a 
     returns and encrypted node.
     node<T> incrypt(node<T>& node_) // encrypt the node.
     }
+    
+it is recommended to pass in a program_stack whose variable defininition looks like this:
+
+    program_stack<T> p; // should initialize. In core guidlines.
+    
+you can then use a spacialised function for a program stack like this:
+
+    template<typename T>
+    [[nodiscard]] auto go_through_stack_encrypt(program_stack<T>& stack_p)
+    
+or 
+    
+    template<typename T>
+    [[nodiscard]] auto go_through_stack_decrypt(program_stack<T>& stack_p)
+
+this then performs all of the work for you. E.g. going through the stack looping over passing a node of the stack to the encrypt or decrypt function.
 
 there is a function decompression that looks like this:
 
