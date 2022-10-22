@@ -1,6 +1,10 @@
 # Decomp
 A decompression and compression library.
 
+Bear in mind that all code samples and the Decomd Library itself are all compiled using
+
+    -std=c++20
+ 
 The interface:
 
 there is a function decompression that looks like this:
