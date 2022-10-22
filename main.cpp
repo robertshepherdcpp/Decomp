@@ -217,6 +217,25 @@ namespace stack_manipulation
         stack_p.current_node = x;
     }
 
+    template<typename T>
+    [[nodiscard]] auto go_through_stack(T& stack_p, bool b) // true if incrypt or false decrypt.
+    {
+        auto x = stack_p.current_node;
+        for(int i = 0; i < stack_p.size(); i++)
+        {
+            if(!b)
+            {
+            decryption(stack_p.current_node);
+            }
+            else
+            {
+                incryption(stack_p.current_node);
+            }
+            stack_p.current_node = stack_p.current_node.next;
+        }
+        stack_p.current_node = x;
+    }  
+
 } // namespace stack_manipulation
 
 auto make_pair_(auto a, auto b) -> pair_<decltype(a), decltype(b)>
@@ -399,7 +418,7 @@ struct bit
 };
 
 template<zero T>
-struct bit<zero>
+struct bit<T>
 {
 };
 
@@ -438,4 +457,10 @@ int main()
     containers::binary<1,0,1,0,0,1> b; // for some reason gives a really wierd output.
     onl();
     b.output_bits();
+
+    /* Examples using the incryption and decryption member function*/
+    // in the stack_manipulation interface.
+
+    
+    
 }
