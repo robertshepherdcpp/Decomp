@@ -5,6 +5,14 @@ Bear in mind that all code samples and the Decomd Library itself are all compile
 
     -std=c++20
  
+ the incryption and decryption are in the stack manipulation namespace:
+ 
+     namespace stack_manipulatioin
+     {
+     [[nodiscard]] auto decryption();
+     [[nodiscard]] auto encryption();
+     }
+     
 The interface:
 
 there is a function decompression that looks like this:
