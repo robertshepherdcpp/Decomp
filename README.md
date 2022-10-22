@@ -15,6 +15,17 @@ Bear in mind that all code samples and the Decomd Library itself are all compile
      
 The interface:
 
+The decryption and encryption functions(the main part of this library) accept a node to decrypt. for instance:
+    
+    namespace
+    {
+    // returns an decrypted node.
+    node<T> decrypt(node<T>& node_); // decrypt the node.
+    
+    returns and encrypted node.
+    node<T> incrypt(node<T>& node_) // encrypt the node.
+    }
+
 there is a function decompression that looks like this:
 
     template<typename T>
