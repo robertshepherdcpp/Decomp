@@ -2,4 +2,5 @@ here is the tick symbol to put after the thing to do is done : ✓
 
 so the first thing to implement is the:
 
-    1. make a function that goes through a stack and calls decrypt or encrypt.
+    1. make a function that goes through a stack and calls decrypt or encrypt. Done: ✓
+    2. Not one yet.
