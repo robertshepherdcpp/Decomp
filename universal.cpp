@@ -40,15 +40,15 @@ struct B
     double data_member{};
 };
 
-int main()
-{
+//int main()
+//{
     A a{};
     B b{};
 
     std::cout << traits::is_same<A, B>;
     x<int> X{};
     // xyz<x>;
-}
+//}
     //template<template <template auto...> typename F, template auto... Args>
     struct s{
 };
