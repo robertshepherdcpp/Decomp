@@ -5,6 +5,15 @@ Bear in mind that all code samples and the Decomd Library itself are all compile
 
     -std=c++20
  
+ Also to use this simply do:
+ 
+     #include<https://raw.githubusercontent.com/robertshepherdcpp/Decomp/main/main.cpp>
+
+     int main()
+     {
+     // ...
+     }
+    
  The incryption and decryption are in the stack manipulation namespace:
  
      namespace stack_manipulatioin
