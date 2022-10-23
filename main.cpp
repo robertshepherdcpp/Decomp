@@ -174,27 +174,35 @@ namespace stack_manipulation
 
         return v;
     }
+
+    struct a_usless_value
+    {
+    };
     
     template<typename T>
-    [[nodiscard]] auto incryption(node<T>& v_t) -> node<T>
+    auto incryption(node<T>& v_t) -> node<T>
     {
             auto x = v_t.data_associated_with_node;
             v_t.data_associated_with_node = static_cast<int>(x);
             //v_t = v_t.next;
         
         // v_t.current_node = start_node;
+
+        return v_t;
     }
     
     template<typename T>
-    [[nodiscard]] auto decryption(node<T>& v_t) -> node<T>
+    auto decryption(node<T>& v_t) -> node<T>
     {
             auto x = static_cast<T>(v_t.data_associated_with_node);
             v_t.data_associated_with_node = x;
             // v_t = v_t.current_node.next;
+
+            return v_t;
     }
 
     template<typename T>
-    [[nodiscard]] auto go_through_stack_encrypt(program_stack<T>& stack_p)
+    auto go_through_stack_encrypt(program_stack<T>& stack_p)
     {
         auto x = stack_p.current_node;
         for(int i = 0; i < stack_p.size(); i++)
@@ -225,11 +233,11 @@ namespace stack_manipulation
         {
             if(!b)
             {
-            decryption(stack_p.current_node);
+            auto x = decryption(stack_p.current_node);
             }
             else
             {
-                incryption(stack_p.current_node);
+                auto x = incryption(stack_p.current_node);
             }
             stack_p.current_node = stack_p.current_node.next;
         }
@@ -272,6 +280,16 @@ struct node
         data_associated_with_node = n->data_associated_with_node;
     }
 
+    auto operator==(node<T>* n)
+    {
+        return data_associated_with_node == n->data_associated_with_node;
+    }
+
+    auto operator==(node<T> n)
+    {
+        return data_associated_with_node == n.data_associated_with_node; 
+    }
+
 };
 
 template<typename T>
@@ -288,22 +306,34 @@ struct stack
 
     auto init_next_of_nodes();
 
-    template<T A, T... B>
-    void initialize_nodes();
+    //template<T A, T... B>
+    //void initialize_nodes(T A, T... B);
+    using value = T;
 
-    template<T A>
-    void initialize_nodes();
+    template<typename X, typename... Xs>
+    void initialize_nodes(X A, Xs... B);
+
+    //template<T A>
+    //void initialize_nodes();
+    
+    template<typename X>
+    void initialize_nodes(X A);
 
     auto find_amount_of_nodes()
     {
         int count = 0;
-        temp_node = constant_node;
+        temp_node = constant_node.data/*data_associated_with_node*/;
         while(temp_node != last_node)
         {
             count++;
             temp_node = temp_node.next;
         }
         return count;
+    }
+
+    auto size()
+    {
+        return find_amount_of_nodes();
     }
 };
 
@@ -317,28 +347,31 @@ auto stack<T>::init_next_of_nodes()
 }
 
 template<typename T>
-template<T A, T... B>
-void stack<T>::initialize_nodes()
+template<typename X, typename... Xs>
+void stack<T>::initialize_nodes(X x, Xs... xs)
 {
     if(is_first_initialize_nodes)
     {
-        constant_node.data = A/*.data_associated_with_node*/;
+        constant_node.data.data_associated_with_node = x/*.data_associated_with_node*/; ///////////////////////// changed from A
     }
-        current_node.data_associated_with_node = A;
-        current_node.before = node_just_before;
+        current_node.data_associated_with_node = x;/////////////////////////////////////////// changed from A
+        *current_node.before = node_just_before;
         node_just_before = current_node;
         current_node = current_node.next;
-        initialize_nodes<B...>();
+        std::cout << "Initialized a node with x: " << x << '\n';
+        initialize_nodes(xs...);
+        // std::cout << "Initialized a node with x: " << x << '\n';
+        // will never reach here.
     
 }
 
 template<typename T>
-template<T A>
-void stack<T>::initialize_nodes()
+template<typename X>
+void stack<T>::initialize_nodes(X A)
 {
     current_node.data_associated_with_node = A;
-    current_node.before = node_just_before;
-    current_node = constant_node;
+    *current_node.before = node_just_before;
+    current_node = constant_node.data;
     last_node = current_node;
 }
 
@@ -461,6 +494,9 @@ int main()
     /* Examples using the incryption and decryption member function*/
     // in the stack_manipulation interface.
 
-    
-    
+    stack<int> xyzY;
+    xyzY.initialize_nodes(1, 2, 3, 4);
+    stack_manipulation::go_through_stack(xyzY, true);
+
+    return 0;
 }
