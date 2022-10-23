@@ -495,8 +495,11 @@ int main()
     // in the stack_manipulation interface.
 
     stack<int> xyzY;
-    xyzY.initialize_nodes(1, 2, 3, 4);
+    //xyzY.initialize_nodes(1, 2, 3, 4); // this is what is causing the wrong output.
     stack_manipulation::go_through_stack(xyzY, true);
+    onl();
+    std::cout << "xyz after incryption: " << xyzY.current_node.data_associated_with_node;
 
+    std::cout << "\nAmount of Lines in this program: " << __LINE__ + 2;
     return 0;
 }
