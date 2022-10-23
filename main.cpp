@@ -466,7 +466,7 @@ auto onl()
     std::cout << "\n";
 }
 
-int main()
+int main_2()
 {
     program_stack<int> p_stack;
     auto x = p_stack.current_node;
