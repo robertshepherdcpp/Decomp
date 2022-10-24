@@ -2,9 +2,9 @@
 A decompression and compression library.
 
 Bear in mind that all code samples and the Decomd Library itself are all compiled using
-
+```C++
     -std=c++20
- 
+```
  Also to use this simply do:
  
      #include<https://raw.githubusercontent.com/robertshepherdcpp/Decomp/main/main.cpp>
