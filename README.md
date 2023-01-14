@@ -11,7 +11,7 @@ Bear in mind that all code samples and the Decomp Library itself are all compile
 
      int main()
      {
-     // ...
+       // ...
      }
  ```
  The incryption and decryption are in the stack manipulation namespace:
