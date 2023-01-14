@@ -18,8 +18,8 @@ Bear in mind that all code samples and the Decomp Library itself are all compile
  ```C++
      namespace stack_manipulatioin
      {
-     [[nodiscard]] auto decryption();
-     [[nodiscard]] auto encryption();
+       [[nodiscard]] auto decryption();
+       [[nodiscard]] auto encryption();
      }
 ``` 
 The interface:
@@ -28,11 +28,11 @@ The decryption and encryption functions(the main part of this library) accept a 
 ```C++
     namespace
     {
-    // returns an decrypted node.
-    node<T> decrypt(node<T>& node_); // decrypt the node.
+      // returns an decrypted node.
+      node<T> decrypt(node<T>& node_); // decrypt the node.
     
-    returns and encrypted node.
-    node<T> incrypt(node<T>& node_) // encrypt the node.
+      returns and encrypted node.
+      node<T> incrypt(node<T>& node_) // encrypt the node.
     }
  ```    
 it is recommended to pass in a program_stack whose variable defininition looks like this:
@@ -60,7 +60,7 @@ there is a function decompression that looks like this:
             v_t.data_associated_with_node = static_cast<int>(x);
             //v_t = v_t.next;
         
-        // v_t.current_node = start_node;
+            // v_t.current_node = start_node;
     }
 ```
 and a compression function that looks like this:
